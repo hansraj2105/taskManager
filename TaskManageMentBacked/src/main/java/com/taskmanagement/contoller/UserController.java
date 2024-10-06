@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("user")
+@CrossOrigin("*")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -35,7 +36,7 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
     @PostMapping("login")
-    public ResponseEntity registration(@RequestParam("username") String username,@RequestParam("pasword") String password) {
+    public ResponseEntity registration(@RequestParam("username") String username,@RequestParam("password") String password) {
         return new ResponseEntity<>(userService.login(username,password), HttpStatus.OK);
     }
 }

@@ -34,8 +34,8 @@ public class TaskService {
         Tasks map = modelMapper.map(task, Tasks.class);
         if(task.getAssignedBy()!=null)
         map.setAssignedBy(new Users(task.getAssignedBy()));
-        if(task.getAssignedTO()!=null)
-        map.setAssignedTO(new Users(task.getAssignedTO()));
+        if(task.getAssignedTo()!=null)
+        map.setAssignedTO(new Users(task.getAssignedTo()));
         if(task.getCreatedBy()!=null)
         map.setCreatedBy(new Users(task.getCreatedBy()));
        taskRepo.save(map);
@@ -48,8 +48,8 @@ public class TaskService {
            modelMapper.map(task, data);
            if(task.getAssignedBy()!=null)
             data.setAssignedBy(new Users(task.getAssignedBy()));
-            if(task.getAssignedTO()!=null)
-            data.setAssignedTO(new Users(task.getAssignedTO()));
+            if(task.getAssignedTo()!=null)
+            data.setAssignedTO(new Users(task.getAssignedTo()));
             taskRepo.save(data);
         },()->{throw new TaskManagementException("Task not found for update");});
 

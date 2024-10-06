@@ -24,13 +24,13 @@ public class Task {
     private Boolean isBlocked;
 
     private Long assignedBy;
-    @NotNull(message = "Assigned tO is mandatory")
+    @NotNull(message = "Assigned to is mandatory")
     @Min(value = 1, message = "To must be greater than zero")
-    private Long assignedTO;
+    private Long assignedTo;
     private Long createdBy;
-    @NotBlank(message = "Priority is mandatory")
+    @NotNull(message = "Priority is mandatory")
     private Priority priority;
-    @NotBlank(message = "Status is mandatory")
+    @NotNull(message = "Status is mandatory")
     private Status status;
     @NotNull(message = "Due Date is mandatory")
     private Date dueDate;

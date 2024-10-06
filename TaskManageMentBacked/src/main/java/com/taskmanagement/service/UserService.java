@@ -14,17 +14,16 @@ public class UserService {
 
    @Autowired
    private UserRepo userRepo;
-    public String  registration(Users users) {
+    public Users  registration(Users users) {
             userRepo.save(users);
-        return "success";
+        return users;
     }
 
     public String update(Users users) {
 
-            if(users.getId()== null || users.getId()==0l)
+        if(users.getId()== null || users.getId()==0l)
                 throw new TaskManagementException("userID not be null or zero ");
             userRepo.save(users);
-
 
         return "success";
     }
@@ -61,6 +60,5 @@ public class UserService {
                     throw new TaskManagementException("invalid username password");
              users.setPassword(null);
              return users;
-
     }
 }

@@ -28,6 +28,6 @@ public class CommonExceptionHandler {
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errors.values(), HttpStatus.BAD_REQUEST);
     }
 }
