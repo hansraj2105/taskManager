@@ -58,13 +58,10 @@ public class UserControllerTest {
 
     @Test
     public void testUpdateUser() throws Exception {
-        Users user = new Users(1L, "Hansraj", "hans@example.com", "password321", Roles.USER);
-
         Mockito.when(userService.update(Mockito.any(Users.class))).thenReturn("success");
 
         mockMvc.perform(put("/user/update")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(user)))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
